@@ -21,6 +21,7 @@ class ModuleSceneSpace;
 class ModuleStageOne;
 class ModuleLicenseIntro;
 class ModulePreMenu;
+class ModuleChooseCharacter;
 
 class Application
 {
@@ -50,6 +51,7 @@ public:
 	ModuleStageOne * stageOne;
 	ModuleLicenseIntro * moduleLicenseIntro;
 	ModulePreMenu * modulePreMenu;
+	ModuleChooseCharacter * moduleChooseCharacter;
 
 private:
 

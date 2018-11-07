@@ -79,6 +79,9 @@
     <ClInclude Include="ModulePreMenu.h">
       <Filter>Game Modules</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleChooseCharacter.h">
+      <Filter>Game Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -130,6 +133,9 @@
       <Filter>Game Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModulePreMenu.cpp">
+      <Filter>Game Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleChooseCharacter.cpp">
       <Filter>Game Modules</Filter>
     </ClCompile>
   </ItemGroup>

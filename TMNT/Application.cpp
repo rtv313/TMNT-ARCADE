@@ -14,6 +14,7 @@
 #include "ModuleStageOne.h"
 #include "ModuleLicenseIntro.h"
 #include "ModulePreMenu.h"
+#include "ModuleChooseCharacter.h"
 
 using namespace std;
 
@@ -29,6 +30,7 @@ Application::Application()
 	// Game Modules
 	modules.push_back(scene_intro = new ModuleSceneIntro(false));
 	modules.push_back(modulePreMenu = new ModulePreMenu(false));
+	modules.push_back(moduleChooseCharacter = new ModuleChooseCharacter(false));
 	modules.push_back(moduleLicenseIntro = new ModuleLicenseIntro(false));
 	modules.push_back(stageOne = new ModuleStageOne(false));
 	modules.push_back(scene_space = new ModuleSceneSpace(false));
@@ -60,7 +62,7 @@ bool Application::Init()
 	}
 
 	// Start the first scene --
-	fade->FadeToBlack(modulePreMenu, nullptr, 3.0f);
+	fade->FadeToBlack(moduleChooseCharacter, nullptr, 3.0f);
 
 	return ret;
 }
