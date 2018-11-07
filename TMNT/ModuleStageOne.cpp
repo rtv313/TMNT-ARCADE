@@ -28,6 +28,7 @@ bool ModuleStageOne::Start() {
 	App->player->Enable();
 	App->particles->Enable();
 	App->collision->Enable();
+	App->audio->CleanUp(); //Clear Audio
 	//App->audio->PlayMusic("Assets/stage1.ogg", 1.0f);
 	App->renderer->camera.x = App->renderer->camera.y = 0;
 

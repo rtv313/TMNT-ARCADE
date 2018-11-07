@@ -21,6 +21,8 @@ enum update_status
 
 enum GameEvent { DESTROY_PARTICLE };
 
+enum class Character { Leonardo, MichaelAngello, Donatello, Rafael };
+
 
 // Useful typedefs ---------
 typedef unsigned int uint;

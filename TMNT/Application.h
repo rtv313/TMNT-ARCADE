@@ -35,6 +35,7 @@ public:
 	bool CleanUp();
 
 public:
+
 	ModuleRender* renderer;
 	ModuleWindow* window;
 	ModuleTextures* textures;

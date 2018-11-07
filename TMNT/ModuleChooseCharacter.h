@@ -12,12 +12,14 @@ private:
 	int startGameFx = 0;
 	bool startGame = false;
 	float startTime = 0;
+	float startTimeBlink = 0;
 	float interval = 500;
+	float intervalBlinkCharacter = 250;
 	bool showFirstPlayer = false;
-	enum class Character { Leonardo, MichaelAngello, Donatello, Rafael };
+	bool showSelectedPlayer = false;
 	Character selectedCharacter = Character::Leonardo;
 	void ChooseCharacter();
-	void BlinkSelectedCharacter();
+
 
 public:
 	ModuleChooseCharacter(bool active = true);

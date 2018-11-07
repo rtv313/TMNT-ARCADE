@@ -6,7 +6,7 @@ class Application;
 class Module
 {
 public:
-
+	
 	Module(bool active = true) : active(active)
 	{}
 

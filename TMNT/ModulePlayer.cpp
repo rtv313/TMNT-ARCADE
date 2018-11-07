@@ -235,3 +235,7 @@ void ModulePlayer::Jump(int const &speed) {
 	}
 }
 
+void ModulePlayer::SetCharacter(Character selectedCharacter) 
+{
+	this->selectedCharacter = selectedCharacter;
+}

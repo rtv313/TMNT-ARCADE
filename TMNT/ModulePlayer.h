@@ -11,6 +11,11 @@ struct SDL_Texture;
 
 class ModulePlayer : public Module ,Observer
 {
+
+private:
+	Character selectedCharacter = Character::Leonardo;
+
+
 public:
 	ModulePlayer(bool active = true);
 	~ModulePlayer();
@@ -20,6 +25,7 @@ public:
 	bool CleanUp();
 	void onNotify(GameEvent event);
 	void Jump(int const &speed);
+	void SetCharacter(Character selectedCharacter);
 
 	
 public:
