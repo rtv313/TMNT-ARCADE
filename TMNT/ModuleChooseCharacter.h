@@ -12,10 +12,12 @@ private:
 	int startGameFx = 0;
 	bool startGame = false;
 	float startTime = 0;
-	float interval = 250;
+	float interval = 500;
+	bool showFirstPlayer = false;
 	enum class Character { Leonardo, MichaelAngello, Donatello, Rafael };
 	Character selectedCharacter = Character::Leonardo;
 	void ChooseCharacter();
+	void BlinkSelectedCharacter();
 
 public:
 	ModuleChooseCharacter(bool active = true);
@@ -26,6 +28,7 @@ public:
 
 public:
 	SDL_Texture * graphics = nullptr;
+	SDL_Texture * selectPlayer = nullptr;
 	Animation selectTurtle;
 	Animation leonardo;
 	Animation michaelAngello;
@@ -36,6 +39,7 @@ public:
 	Animation nonSelectedDonatello;
 	Animation nonSelectedRafael;
 	Animation selectFramework;
+	Animation firstPlayer;
 };
 #endif //_MODULE_CHOOSE_CHARACTER_H_
 

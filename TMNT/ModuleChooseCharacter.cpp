@@ -24,6 +24,7 @@ bool ModuleChooseCharacter::Start()
 {
 	LOG("Loading PreMenuModule");
 	graphics = App->textures->Load("Assets/TMNTSprites/SelectCharacter.png");
+	selectPlayer = App->textures->Load("Assets/TMNTSprites/SelectPlayer.png");
 	App->renderer->camera.x = App->renderer->camera.y = 0;
 	startGameFx = App->audio->LoadFx("Assets/explosion.wav");
 
@@ -38,6 +39,7 @@ bool ModuleChooseCharacter::Start()
 	nonSelectedDonatello = Animation();
 	nonSelectedRafael = Animation();
 	selectFramework = Animation();
+	firstPlayer = Animation();
 
 	selectTurtle.frames.push_back({ 70, 4, 146, 10 });
 
@@ -52,6 +54,8 @@ bool ModuleChooseCharacter::Start()
 	nonSelectedRafael.frames.push_back({ 210, 85, 64, 64 });
 
 	selectFramework.frames.push_back({ 279, 66, 81, 81 });
+
+	firstPlayer.frames.push_back({ 2,3,26,27 });
 	
 	startTime = SDL_GetTicks();
 
@@ -84,6 +88,8 @@ update_status ModuleChooseCharacter::Update()
 
 	
 
+	
+
 
 	//Once Selected start blinking
 	if (startGame == false)
@@ -106,12 +112,22 @@ bool ModuleChooseCharacter::CleanUp()
 {
 	LOG("Unloading License Scene");
 	App->textures->Unload(graphics);
+	App->textures->Unload(selectPlayer);
 	return true;
 }
 
 
 void ModuleChooseCharacter::ChooseCharacter()
-{
+{	
+	int showFirstPlayerPosX = 0;
+	int showFirstPlayerPosY = 0;
+	
+	if (SDL_GetTicks() - startTime >= interval) // Produce appear disapear effect 
+	{
+		startTime = SDL_GetTicks();
+		showFirstPlayer = !showFirstPlayer;
+	}
+
 	// Selection changes for Leonardo
 	switch (selectedCharacter) {
 
@@ -133,8 +149,9 @@ void ModuleChooseCharacter::ChooseCharacter()
 			}
 
 			App->renderer->Blit(graphics, 119, 59, &(leonardo.GetCurrentFrame()), 0.0f);
+			showFirstPlayerPosX = 110;
+			showFirstPlayerPosY = 44;
 			LOG("Leonardo");
-
 			break;
 
 
@@ -158,6 +175,8 @@ void ModuleChooseCharacter::ChooseCharacter()
 			}
 
 			App->renderer->Blit(graphics, 214, 59, &(michaelAngello.GetCurrentFrame()), 0.0f);
+			showFirstPlayerPosX = 205;
+			showFirstPlayerPosY = 44;
 			LOG("MichaelAngello");
 
 			break;
@@ -179,6 +198,10 @@ void ModuleChooseCharacter::ChooseCharacter()
 			}
 
 			App->renderer->Blit(graphics, 119, 159, &(donatello.GetCurrentFrame()), 0.0f);
+			showFirstPlayerPosX = 110;
+			showFirstPlayerPosY = 144;
+				
+			
 			LOG("Donatello");
 
 			break;
@@ -202,9 +225,15 @@ void ModuleChooseCharacter::ChooseCharacter()
 			}
 
 			App->renderer->Blit(graphics, 214, 159, &(rafael.GetCurrentFrame()), 0.0f);
+			showFirstPlayerPosX = 205;
+			showFirstPlayerPosY = 145;
+			
 			LOG("Rafael");
 
 			break;
 		}
+
+		if (showFirstPlayer == true)
+			App->renderer->Blit(selectPlayer, showFirstPlayerPosX, showFirstPlayerPosY, &(firstPlayer.GetCurrentFrame())); 
 
 }
