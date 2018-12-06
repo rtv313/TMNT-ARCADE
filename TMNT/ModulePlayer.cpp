@@ -12,7 +12,6 @@
 #include "SDL/include/SDL.h"
 
 
-// Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
 ModulePlayer::ModulePlayer(bool active) : Module(active)
 {
